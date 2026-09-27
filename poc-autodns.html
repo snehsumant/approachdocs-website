@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoDNS Architectural Case Study | Approach Docs</title>
+    <meta name="description" content="Technical Case Study: Engineering a zero-telemetry, battery-optimized Private DNS automation engine for Android 9–15 by Approach Docs.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-dark text-slate-100 min-h-screen bg-mesh">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-surface/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center">
+                    <i data-lucide="activity" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <div class="font-extrabold text-base tracking-tight text-white">Approach Docs</div>
+                    <div class="text-[10px] uppercase font-mono tracking-wider text-slate-400">Proof of Concept Lab</div>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <a href="index.html#contact" class="btn-primary px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                    <span>Hire Us for Android</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-14">
+        <!-- Hero Header -->
+        <div class="mb-12">
+            <div class="flex items-center gap-2 mb-4">
+                <a href="index.html#pocs" class="text-xs text-sky-400 hover:underline flex items-center gap-1">
+                    <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i> Proof of Concepts
+                </a>
+                <span class="text-slate-600">/</span>
+                <span class="text-xs text-slate-400">Production Case Study</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                        AutoDNS: Android Private DNS Automation
+                    </h1>
+                    <p class="text-slate-400 text-base mt-2 max-w-2xl">
+                        Solving the public Wi-Fi captive portal dilemma with low-level Android IPC, zero battery drain, and zero-telemetry architecture.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="assets/downloads/AutoDNS.apk" download class="btn-primary px-5 py-3 rounded-xl text-sm font-bold flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Download APK (1.29MB)</span>
+                    </a>
+                    <a href="https://github.com/snehsumant/AutoPrivateDNS" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 flex items-center gap-2 transition-colors">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>Source</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metric Highlights -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+            <div class="p-5 glass-card rounded-2xl">
+                <div class="text-xs font-mono text-slate-400 uppercase">APK Size</div>
+                <div class="text-2xl font-bold text-sky-400 mt-1 font-mono">1.29 MB</div>
+                <div class="text-[11px] text-slate-500 mt-1">R8 Proguard Aggressive Shrinking</div>
+            </div>
+            <div class="p-5 glass-card rounded-2xl">
+                <div class="text-xs font-mono text-slate-400 uppercase">Battery Impact</div>
+                <div class="text-2xl font-bold text-emerald-400 mt-1 font-mono">&lt; 0.1%</div>
+                <div class="text-[11px] text-slate-500 mt-1">Reactive NetworkCallback (No Polling)</div>
+            </div>
+            <div class="p-5 glass-card rounded-2xl">
+                <div class="text-xs font-mono text-slate-400 uppercase">Privacy Profile</div>
+                <div class="text-2xl font-bold text-indigo-400 mt-1 font-mono">0 Trackers</div>
+                <div class="text-[11px] text-slate-500 mt-1">Exclusively Local Execution</div>
+            </div>
+            <div class="p-5 glass-card rounded-2xl">
+                <div class="text-xs font-mono text-slate-400 uppercase">OS Compatibility</div>
+                <div class="text-2xl font-bold text-amber-400 mt-1 font-mono">API 28 – 35</div>
+                <div class="text-[11px] text-slate-500 mt-1">Android 9 Pie to Android 15</div>
+            </div>
+        </div>
+
+        <!-- Case Study Content -->
+        <div class="space-y-12">
+            <!-- 01 The Problem -->
+            <div class="glass-card rounded-3xl p-8 border border-slate-800">
+                <div class="badge badge-purple mb-3">01 / The Pathology (Problem)</div>
+                <h2 class="text-2xl font-bold text-white mb-4">The Android Private DNS Captive Portal Failure</h2>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                    Android introduced TLS-encrypted Private DNS (DNS-over-TLS) in Android 9 to protect users against ISP snooping and malware. However, enabling a custom Private DNS provider (such as NextDNS or AdGuard) introduces a severe daily usability failure:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-200 text-xs leading-relaxed">
+                        <strong class="text-white block mb-1">❌ Captive Portal Breakage</strong>
+                        Public Wi-Fi networks (airports, cafes, hotels, universities) require a captive portal login. Because Private DNS attempts TLS handshakes to foreign hostnames before authentication, the portal cannot resolve, leaving the device stranded with no connectivity.
+                    </div>
+                    <div class="grid-card p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs leading-relaxed">
+                        <strong class="text-white block mb-1">❌ Friction-Heavy Workaround</strong>
+                        Users must manually open Android Settings &gt; Network &amp; Internet &gt; Private DNS, switch it off, complete the login, and remember to re-enable it afterwards.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02 The Engineering Solution -->
+            <div class="glass-card rounded-3xl p-8 border border-slate-800">
+                <div class="badge badge-cyan mb-3">02 / The Prescription (Architecture)</div>
+                <h2 class="text-2xl font-bold text-white mb-4">Autonomous, Reactive Network Context Switching</h2>
+                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                    Rather than running continuous battery-draining CPU loops, AutoDNS registers event-driven OS network callbacks with Android's <code class="font-mono text-sky-300">ConnectivityManager</code>. The moment an active Wi-Fi network's BSSID or SSID transitions, our state engine evaluates configured rules and alters the system settings table in less than 50 milliseconds.
+                </p>
+
+                <div class="code-container font-mono text-xs mb-6">
+<pre>// Core Automation Engine - Sub-millisecond reactive transition
+val request = NetworkRequest.Builder()
+    .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+    .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    .build()
+
+connectivityManager.registerNetworkCallback(request, object : ConnectivityManager.NetworkCallback() {
+    override fun onCapabilitiesChanged(network: Network, caps: NetworkCapabilities) {
+        val currentSsid = resolveSsid(network, caps)
+        evaluateAndApply(targetSsid = config.targetSsid, currentSsid = currentSsid)
+    }
+})</pre>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-800 text-xs">
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                        <h4 class="font-bold text-white mb-1">Target Wi-Fi Rule</h4>
+                        <p class="text-slate-400">When connected to your trusted home network, automatically apply Custom Private DNS (AdGuard / NextDNS / Cloudflare).</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                        <h4 class="font-bold text-white mb-1">Untrusted Wi-Fi Rule</h4>
+                        <p class="text-slate-400">When connecting to airport or public Wi-Fi, immediately revert Private DNS to "Automatic" or "Off" so captive portals render instantly.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                        <h4 class="font-bold text-white mb-1">Mobile Data Fallback</h4>
+                        <p class="text-slate-400">Automatically enforces your cellular DNS policy the instant Wi-Fi drops.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 Technical Rigor -->
+            <div class="glass-card rounded-3xl p-8 border border-slate-800">
+                <div class="badge badge-emerald mb-3">03 / Surgical Engineering Rigor</div>
+                <h2 class="text-2xl font-bold text-white mb-4">Key Technical Highlights</h2>
+                <ul class="space-y-4 text-sm text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="text-white">Direct Android Framework Integration (`Settings.Global`):</strong>
+                            Manipulates OS-level Private DNS modes without relying on local VPN tunnels, preventing the throughput bottlenecks and battery penalties associated with VPN-based DNS blockers.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="text-white">Seamless Shizuku & ADB One-Time Authorization:</strong>
+                            Compatible with unrooted production consumer phones (Samsung One UI, Google Pixel, OnePlus, Xiaomi) using Shizuku wireless debugging or standard ADB shell.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="text-white">State-Preserving Foreground Service:</strong>
+                            Compliant with Android 14/15 Foreground Service types (`SPECIAL_USE`) to survive aggressive OEM battery-killing daemons while consuming negligible power.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="text-white">R8 Code Minification:</strong>
+                            Aggressive Proguard configuration eliminated 85% of standard library bloat, shrinking the release binary down to a lightweight 1.29 MB.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Setup / Verification snippet for testers & clients -->
+            <div class="glass-card rounded-3xl p-8 border border-slate-800">
+                <h3 class="text-xl font-bold text-white mb-2">Want to test AutoDNS on your device?</h3>
+                <p class="text-slate-400 text-xs mb-4">
+                    Install the APK and grant system settings permission once via ADB (or click one button in Shizuku):
+                </p>
+                <div class="relative">
+                    <div class="code-container font-mono text-xs text-sky-300 pr-24">
+adb shell pm grant com.approachdocs.autodns android.permission.WRITE_SECURE_SETTINGS
+                    </div>
+                    <button onclick="copyToClipboard('adb shell pm grant com.approachdocs.autodns android.permission.WRITE_SECURE_SETTINGS', 'copyAdbBtn')" id="copyAdbBtn" class="absolute right-3 top-3 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono border border-slate-700 transition-colors">
+                        Copy Command
+                    </button>
+                </div>
+            </div>
+
+            <!-- Client CTA -->
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-tr from-sky-950/60 to-indigo-950/60 border border-sky-500/30 text-center">
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Need low-level Android engineering or system automation?</h3>
+                <p class="text-slate-300 text-sm mt-3 max-w-xl mx-auto">
+                    Whether you are developing hardware accessories, enterprise fleet MDM apps, background sync engines, or performance-critical mobile products, Approach Docs delivers production-grade code.
+                </p>
+                <div class="mt-8">
+                    <a href="index.html#contact" class="btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm">
+                        <span>Discuss Your Android Project</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        <a href="index.html" class="text-sky-400 hover:underline">Approach Docs</a> • © 2026 Approach Doctors Consulting. All rights reserved.
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

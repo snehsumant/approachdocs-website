@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - AutoDNS | Approach Docs</title>
+    <meta name="description" content="Official Privacy Policy for AutoDNS (com.approachdocs.autodns) developed by Approach Docs. Zero data collection, zero telemetry.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-dark text-slate-100 min-h-screen bg-mesh">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-surface/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-bold text-sm">
+                <i data-lucide="arrow-left" class="w-4 h-4 text-sky-400"></i>
+                <span>Back to Approach Docs</span>
+            </a>
+            <div class="text-xs font-mono text-slate-400">Policy Effective: September 2026</div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-800">
+            <!-- Header section -->
+            <div class="border-b border-slate-800 pb-8 mb-8">
+                <div class="badge badge-emerald mb-3">Google Play Policy Compliance</div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Privacy Policy for AutoDNS
+                </h1>
+                <p class="text-slate-400 text-sm mt-2">
+                    Application Package: <code class="text-sky-300 font-mono">com.approachdocs.autodns</code> | Developed by <strong>Approach Docs (Approach Doctors)</strong>
+                </p>
+            </div>
+
+            <div class="prose prose-invert max-w-none text-slate-300 space-y-8 text-sm leading-relaxed">
+                <!-- Summary Card -->
+                <div class="p-5 rounded-2xl bg-sky-500/10 border border-sky-500/30 text-sky-200">
+                    <h3 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-sky-400"></i>
+                        Summary: Zero Data Collection by Design
+                    </h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        AutoDNS is built on a strict privacy-first foundation. The application collects <strong>zero personally identifiable information (PII)</strong>, contains <strong>no advertising SDKs</strong>, performs <strong>no analytics or user behavior tracking</strong>, and communicates with <strong>no remote servers</strong>. All automation runs exclusively on your local device.
+                    </p>
+                </div>
+
+                <!-- Section 1 -->
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">1. Information We Collect</h2>
+                    <p>
+                        <strong>We collect no personal data whatsoever.</strong> AutoDNS does not require account creation, does not ask for your name, phone number, email address, IP address, or device identifier (IMEI/Android ID).
+                    </p>
+                </div>
+
+                <!-- Section 2: Permission Disclosures -->
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">2. Device Permissions & Why They Are Required</h2>
+                    <p class="mb-4">
+                        To automate Private DNS switching according to your configured preferences, AutoDNS requests specific system-level permissions. Here is an explicit, transparent accounting of why each permission is utilized:
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="font-mono text-xs font-bold text-sky-400 mb-1">ACCESS_FINE_LOCATION & ACCESS_BACKGROUND_LOCATION</div>
+                            <p class="text-xs text-slate-300">
+                                <strong>Purpose:</strong> Starting with Android 8.1 (API level 27) and strictly enforced in Android 10+, Google's Android Framework mandates location permissions in order for applications to read the Wi-Fi Service Set Identifier (SSID / Wi-Fi Network Name). AutoDNS requires this name solely to match against your configured "Target Wi-Fi" rule.
+                            </p>
+                            <p class="text-xs text-emerald-400 mt-2 font-medium">
+                                🛡️ Guarantee: AutoDNS never accesses your physical GPS coordinates, never performs geocoding, never records location history, and never transmits Wi-Fi or location data off your device.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="font-mono text-xs font-bold text-indigo-400 mb-1">WRITE_SECURE_SETTINGS</div>
+                            <p class="text-xs text-slate-300">
+                                <strong>Purpose:</strong> Android protects Private DNS settings (mode and custom hostname) within the protected system table (`Settings.Global`). AutoDNS uses this permission strictly to toggle between "Off", "Automatic", and "Custom Private DNS" when you connect or disconnect from your designated Wi-Fi networks. This permission is granted once by the user via ADB or Shizuku.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="font-mono text-xs font-bold text-amber-400 mb-1">FOREGROUND_SERVICE (SPECIAL_USE) & POST_NOTIFICATIONS</div>
+                            <p class="text-xs text-slate-300">
+                                <strong>Purpose:</strong> A low-overhead foreground service is required by Android OS to register active network callbacks that listen for Wi-Fi connection and disconnection events in real time. The persistent notification provides instant user transparency showing the currently applied DNS mode and network.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">3. Third-Party Services and Analytics</h2>
+                    <p>
+                        AutoDNS integrates <strong>no third-party SDKs</strong>:
+                    </p>
+                    <ul class="list-disc list-inside mt-2 space-y-1 text-slate-400 text-xs">
+                        <li>No Google Firebase Analytics or Crashlytics</li>
+                        <li>No Facebook SDKs or AdMob trackers</li>
+                        <li>No external telemetry, metrics, or diagnostic uploads</li>
+                        <li>No outbound internet access permissions (<code class="text-slate-300 font-mono">android.permission.INTERNET</code> is not utilized by the core automation engine)</li>
+                    </ul>
+                </div>
+
+                <!-- Section 4 -->
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">4. Data Storage and Retention</h2>
+                    <p>
+                        All user preferences (such as target Wi-Fi names, selected DNS mode, custom DNS hostname, and local event logs) are stored strictly on your local device using Android encrypted SharedPreferences. Uninstalling the app permanently purges all local configuration.
+                    </p>
+                </div>
+
+                <!-- Section 5 -->
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">5. Children's Privacy</h2>
+                    <p>
+                        AutoDNS does not knowingly collect or solicit personal data from children under the age of 13 (or under 16 in the European Union). The app does not collect personal data from any user regardless of age.
+                    </p>
+                </div>
+
+                <!-- Section 6 -->
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-3">6. Changes to This Privacy Policy</h2>
+                    <p>
+                        We may update our Privacy Policy periodically to reflect changes in legal or operational requirements. Any revisions will be published at this permanent URL (<code class="text-sky-300">https://approachdocs.com/privacy-autodns.html</code>).
+                    </p>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="pt-6 border-t border-slate-800">
+                    <h2 class="text-xl font-bold text-white mb-3">7. Contact & Security Inquiries</h2>
+                    <p>
+                        If you have questions regarding this Privacy Policy, please contact our team at:
+                    </p>
+                    <div class="mt-3 p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-1">
+                        <div><strong>Organization:</strong> Approach Docs (Approach Doctors)</div>
+                        <div><strong>Security & Privacy Officer:</strong> Sneh Sumant</div>
+                        <div><strong>Direct Email:</strong> <a href="mailto:contact@approachdocs.com" class="text-sky-400 hover:underline">contact@approachdocs.com</a></div>
+                        <div><strong>Domain:</strong> <a href="https://approachdocs.com" class="text-sky-400 hover:underline">approachdocs.com</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        © 2026 Approach Docs (Approach Doctors). All rights reserved.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approach Docs | Senior Systems & Native Android Consulting</title>
+    <meta name="description" content="Approach Docs (Approach Doctors) is a premier engineering consultancy specializing in Native Android architecture, distributed backend systems, and deterministic AI software.">
+    <meta name="keywords" content="Approach Docs, Approach Doctors, IT Consulting, Native Android Developer, Kotlin, Spring Boot, Supabase, Cloud Architecture, Freelance Software Architect">
+    <meta name="author" content="Approach Docs">
+
+    <!-- OpenGraph / Social Cards -->
+    <meta property="og:title" content="Approach Docs | IT Consulting & Systems Engineering">
+    <meta property="og:description" content="We diagnose complex tech stacks and engineer resilient mobile, backend, and AI software.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://approachdocs.com/">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#090D16',
+                        surface: '#0F172A',
+                        card: '#1E293B',
+                        primary: '#38BDF8',
+                        accent: '#818CF8'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-dark text-slate-100 min-h-screen bg-mesh grid-pattern">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                    <i data-lucide="activity" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <div class="font-extrabold text-xl tracking-tight text-white flex items-center gap-1.5">
+                        Approach Docs
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">Doctors</span>
+                    </div>
+                    <div class="text-[10px] uppercase font-mono tracking-widest text-slate-400">Systems & Mobile Architects</div>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#services" class="hover:text-sky-400 transition-colors">Services</a>
+                <a href="#pocs" class="hover:text-sky-400 transition-colors flex items-center gap-1.5">
+                    Proof of Concepts
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                </a>
+                <a href="#philosophy" class="hover:text-sky-400 transition-colors">Approach</a>
+                <a href="poc-autodns.html" class="hover:text-sky-400 transition-colors">AutoDNS Case Study</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contact" class="btn-primary px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+                    <span>Book Consultation</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-400 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-surface px-6 py-4 space-y-4">
+            <a href="#services" class="block text-slate-300 hover:text-sky-400 py-1">Services</a>
+            <a href="#pocs" class="block text-slate-300 hover:text-sky-400 py-1">Proof of Concepts (POCs)</a>
+            <a href="#philosophy" class="block text-slate-300 hover:text-sky-400 py-1">Engineering Approach</a>
+            <a href="poc-autodns.html" class="block text-slate-300 hover:text-sky-400 py-1">AutoDNS Case Study</a>
+            <a href="#contact" class="btn-primary block text-center px-4 py-2.5 rounded-lg text-sm font-semibold mt-4">
+                Book Consultation
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                IT Consulting & Systems Engineering Studio
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.15]">
+                We diagnose technical bottlenecks. <br>
+                <span class="text-gradient">We prescribe & build resilient software.</span>
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                <strong class="text-slate-200">Approach Docs (Approach Doctors)</strong> pairs senior-level technical diagnosis with battle-tested implementation across Native Android, distributed backends, and deterministic AI workflows.
+            </p>
+
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <a href="#contact" class="btn-primary px-8 py-3.5 rounded-xl font-bold text-base flex items-center gap-2.5">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Consult with an Architect</span>
+                </a>
+                <a href="#pocs" class="px-7 py-3.5 rounded-xl font-semibold text-base bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 text-slate-200 hover:text-white transition-all flex items-center gap-2">
+                    <i data-lucide="layers" class="w-5 h-5 text-sky-400"></i>
+                    <span>Explore Working POCs</span>
+                </a>
+            </div>
+
+            <!-- Trust Bar / Key Proofs -->
+            <div class="mt-20 pt-10 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-mono">100%</div>
+                    <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Privacy & Security First</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-mono">0ms</div>
+                    <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Unnecessary Overhead</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">Production</div>
+                    <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Native Android & Cloud</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">Direct</div>
+                    <div class="text-xs uppercase tracking-wider text-slate-400 mt-1">Founder-Led Delivery</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proof of Concepts / Product Lab (CRITICAL FOR CLIENT ATTRACTION) -->
+        <section id="pocs" class="py-20 px-6 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="badge badge-cyan mb-3">Live Proof of Concepts (POC Lab)</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                        We don't just pitch. We ship running systems.
+                    </h2>
+                </div>
+                <p class="mt-4 md:mt-0 text-sm text-slate-400 max-w-md">
+                    Explore our in-house engineered products. Every POC reflects the rigorous engineering standards we bring to our consulting clients.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- POC 1: AutoDNS (Android) -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden border border-sky-500/20 group">
+                    <div class="absolute -right-12 -top-12 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="flex items-start justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center p-2.5 shadow-xl shadow-sky-500/5">
+                                <svg class="w-full h-full" viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M54,31 C49,31 35.5,33.5 34.5,34.5 C34,35 34,36.5 34,38 L34,53 C34,64 43,72 53.5,76.5 C53.8,76.6 54.2,76.6 54.5,76.5 C65,72 74,64 74,53 L74,38 C74,36.5 74,35 73.5,34.5 C72.5,33.5 59,31 54,31 Z" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="rgba(56, 189, 248, 0.08)"/>
+                                    <path d="M42,45 C45,41 63,41 66,45" stroke="#F8FAFC" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M46,52 C48.5,49 59.5,49 62,52" stroke="#94A3B8" stroke-width="2.6" stroke-linecap="round"/>
+                                    <circle cx="54" cy="58.5" r="2.8" fill="#38BDF8"/>
+                                    <rect x="49" y="63.5" width="10" height="6.5" rx="1.5" fill="#64748B"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                    AutoDNS
+                                    <span class="badge badge-emerald text-[10px]">Production Android App</span>
+                                </h3>
+                                <p class="text-xs font-mono text-slate-400 mt-0.5">com.approachdocs.autodns | Android 9 – 15</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        An intelligent, privacy-first Android background automation engine that dynamically switches between encrypted Private DNS profiles and captive portal modes based on real-time Wi-Fi network telemetry. Built with <strong>zero telemetry</strong>, <strong>zero battery drain</strong>, and strict OS sandboxing.
+                    </p>
+
+                    <!-- Tech stack chips -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300 border border-slate-700">Kotlin</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300 border border-slate-700">Jetpack Compose</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300 border border-slate-700">Coroutines & StateFlow</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300 border border-slate-700">Shizuku & ADB Integration</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-sky-300 border border-slate-700">R8 Minified (1.29MB)</span>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-800/80">
+                        <a href="poc-autodns.html" class="btn-primary px-4 py-2.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                            <i data-lucide="file-code-2" class="w-4 h-4"></i>
+                            <span>Deep Dive Case Study</span>
+                        </a>
+                        <a href="assets/downloads/AutoDNS.apk" download class="px-4 py-2.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1.5 transition-colors">
+                            <i data-lucide="download" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Download APK (1.29 MB)</span>
+                        </a>
+                        <a href="https://github.com/snehsumant/AutoPrivateDNS" target="_blank" rel="noopener noreferrer" class="px-3 py-2.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-colors flex items-center gap-1">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- POC 2: ApproachDocs Engine (AI SaaS) -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden border border-indigo-500/20 group">
+                    <div class="absolute -right-12 -top-12 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="flex items-start justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center p-2.5 shadow-xl shadow-indigo-500/5">
+                                <i data-lucide="cpu" class="w-8 h-8 text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+                                    ApproachDocs Studio
+                                    <span class="badge badge-purple text-[10px]">Cloud SaaS POC</span>
+                                </h3>
+                                <p class="text-xs font-mono text-slate-400 mt-0.5">Autonomous Architecture Generator</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        An enterprise SaaS platform that ingests raw Product Requirement Documents (PRDs) and compiles them into production-ready 13-section technical architecture documents, complete with Mermaid sequence diagrams, DB schemas, and API contracts.
+                    </p>
+
+                    <!-- Tech stack chips -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-indigo-300 border border-slate-700">Java 21</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-indigo-300 border border-slate-700">Spring Boot 3.5</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-indigo-300 border border-slate-700">Supabase PG 17</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-indigo-300 border border-slate-700">React + TipTap</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-mono text-indigo-300 border border-slate-700">Strict JSON AI Pipelines</span>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-800/80">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+                            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                            <span>Private Alpha Stage</span>
+                        </span>
+                        <a href="#contact" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-colors flex items-center gap-1.5">
+                            <span>Request Enterprise Demo</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consulting Services Breakdown -->
+        <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="badge badge-purple mb-3">Our Specialized Practice</div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+                    Targeted Engineering Disciplines
+                </h2>
+                <p class="mt-4 text-slate-400 text-base">
+                    We don't offer generic junior developer hours. We step in as principal engineers to solve tough architectural, performance, and scaling challenges.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-5">
+                            <i data-lucide="smartphone" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Native Android & OS Systems</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Low-level Android IPC, background services, network monitors, Shizuku/ADB automation, battery-sparing state machines, and Play Store policy navigation.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs font-mono text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Kotlin & Jetpack Compose</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Foreground Service Architecture</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> R8 / Proguard Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-5">
+                            <i data-lucide="server" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Cloud Backend & Microservices</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Robust distributed backend architectures, relational data modeling, OAuth2/JWT security hardening, database pooling, and high-throughput APIs.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs font-mono text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Java 21 & Spring Boot 3</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> PostgreSQL / Supabase Tuning</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Zero-Downtime Migration</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Full-Stack SaaS & Web Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Blazing-fast responsive user interfaces, rich document canvases, complex state management, and real-time interactive dashboards.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs font-mono text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> React, Vite, Tailwind CSS</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Interactive Canvas & Editors</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> 100/100 Lighthouse Performance</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5">
+                            <i data-lucide="workflow" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Pipelines & Determinism</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Practical, high-ROI AI integrations: strict JSON schema enforcement, PRD-to-code pipelines, fallback resilience, and cost optimization.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs font-mono text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Deterministic LLM Architecture</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Cost-Optimized Routing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Automated Document Synthesizers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- The "Approach Doctors" Method -->
+        <section id="philosophy" class="py-20 px-6 max-w-7xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-800">
+                <div class="max-w-3xl">
+                    <div class="badge badge-cyan mb-3">The "Approach Doctors" Philosophy</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Why call ourselves Approach Doctors?
+                    </h2>
+                    <p class="mt-4 text-slate-300 text-base leading-relaxed">
+                        In medical diagnostics, treating symptoms without understanding the pathology leads to recurring illness. The same applies to enterprise software. When codebases slow down, crash under concurrency, or suffer security regressions, most teams slap on more servers or haphazard libraries.
+                    </p>
+                    <p class="mt-4 text-slate-300 text-base leading-relaxed">
+                        At <span class="text-sky-400 font-semibold">Approach Docs</span>, we conduct an exhaustive <strong>Architecture Diagnosis</strong> first: inspecting concurrency locks, network boundaries, and state lifecycle. Only then do we engineer the clean, minimal, permanent prescription.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-800">
+                    <div>
+                        <div class="text-sky-400 font-mono text-sm font-semibold mb-1">01 / DIAGNOSE</div>
+                        <h4 class="text-lg font-bold text-white mb-2">Deep Root-Cause Audit</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">We audit memory leaks, race conditions, schema bottlenecks, and privacy compliance before writing a single line.</p>
+                    </div>
+                    <div>
+                        <div class="text-indigo-400 font-mono text-sm font-semibold mb-1">02 / PRESCRIBE</div>
+                        <h4 class="text-lg font-bold text-white mb-2">Architectural Blueprint</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">We produce comprehensive HLD/LLD diagrams, contract specs, and non-goals to guarantee alignment.</p>
+                    </div>
+                    <div>
+                        <div class="text-emerald-400 font-mono text-sm font-semibold mb-1">03 / IMPLEMENT</div>
+                        <h4 class="text-lg font-bold text-white mb-2">Surgical Code Delivery</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Clean, typed, idiomatic code with thorough edge-case handling, automated tests, and deployment automation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Consultation Booking Form -->
+        <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-sky-500/20 shadow-2xl relative overflow-hidden">
+                <div class="text-center max-w-xl mx-auto mb-10">
+                    <div class="badge badge-cyan mb-2">Start a Project</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Schedule an Architecture Audit
+                    </h2>
+                    <p class="mt-3 text-slate-400 text-sm">
+                        Tell us about your upcoming Android app, backend infrastructure challenge, or SaaS project. We reply within 24 hours.
+                    </p>
+                </div>
+
+                <!-- Toast notification -->
+                <div id="contactToast" class="hidden mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3">
+                    <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0"></i>
+                    <span>Opening your mail client with prefilled project specs. Alternatively, you can directly email <strong>contact@approachdocs.com</strong>.</span>
+                </div>
+
+                <form id="consultingContactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Your Name</label>
+                            <input type="text" id="clientName" required placeholder="e.g. Alex Mercer" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Your Email</label>
+                            <input type="email" id="clientEmail" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Primary Engineering Need</label>
+                        <select id="clientService" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-sky-400 text-sm">
+                            <option value="Native Android Architecture / App Development">Native Android Architecture / App Development</option>
+                            <option value="Spring Boot & Cloud Backend Engineering">Spring Boot & Cloud Backend Engineering</option>
+                            <option value="Full-Stack React SaaS Engineering">Full-Stack React SaaS Engineering</option>
+                            <option value="System Audit & Performance Diagnosis">System Audit & Performance Diagnosis</option>
+                            <option value="Other Custom Software Project">Other Custom Software Project</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Project Brief & Requirements</label>
+                        <textarea id="clientMessage" rows="4" required placeholder="Briefly describe what you're building, target timeline, and technical constraints..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-sky-400 text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full btn-primary py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <span>Send Engineering Inquiry</span>
+                    </button>
+
+                    <div class="text-center text-xs text-slate-500 mt-3">
+                        Direct inquiries: <a href="mailto:contact@approachdocs.com" class="text-sky-400 hover:underline">contact@approachdocs.com</a> | Bangalore & Global
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-surface/80 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-white">
+                    <i data-lucide="activity" class="w-4 h-4"></i>
+                </div>
+                <div class="text-sm font-bold text-white">Approach Docs</div>
+                <div class="text-xs text-slate-500">© 2026 Approach Doctors Consulting. All rights reserved.</div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400">
+                <a href="poc-autodns.html" class="hover:text-sky-400 transition-colors">AutoDNS Case Study</a>
+                <a href="privacy-autodns.html" class="hover:text-sky-400 transition-colors">AutoDNS Privacy Policy</a>
+                <a href="terms.html" class="hover:text-sky-400 transition-colors">Terms of Service</a>
+                <a href="mailto:contact@approachdocs.com" class="hover:text-sky-400 transition-colors">contact@approachdocs.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
